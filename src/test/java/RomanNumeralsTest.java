@@ -43,4 +43,37 @@ class RomanNumeralsTest {
         assertEquals("IV", romanNumerals.convertToNumber(4));
     }
 
+    @Test
+    void romanNumerals_should_add_a_second_I_from_1_to_2() {
+        assertEquals("II", romanNumerals.convertToNumber(2));
+    }
+
+    @Test
+    void romanNumerals_should_work_with_larger_number_till_38() {
+        assertEquals("XXXVIII",romanNumerals.convertToNumber(38) );
+    }
+    @Test
+    void romanNumerals_should_work_with_lower_number_till_39() {
+        assertEquals("XXXIX",romanNumerals.convertToNumber(39) );
+    }
+
+    @Test
+    void romanNumerals_should_work_with_L_on_50() {
+        assertEquals("L", romanNumerals.convertToNumber(50));
+    }
+
+    @Test
+    void romanNumerals_should_return_XL_on_40() {
+        assertEquals("XL", romanNumerals.convertToNumber(40));
+    }
+
+    @Test
+    void romanNumerals_should_return_C_on_100() {
+        assertEquals("C", romanNumerals.convertToNumber(100));
+    }
+
+    @Test
+    void romanNumerals_should_work_with_359() {
+        assertEquals("CCCLIX", romanNumerals.convertToNumber(359));
+    }
 }
