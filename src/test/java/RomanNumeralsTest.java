@@ -1,6 +1,9 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,62 +17,19 @@ class RomanNumeralsTest {
     }
 
     @Test
-    void test_method_exists() {
+    void romanNumerals_should_return_no_value_on_0() {
         assertEquals("", romanNumerals.convertToNumber(0));
     }
 
-    @Test
-    void romanNumerals_should_return_I_on_1() {
-        assertEquals("I", romanNumerals.convertToNumber(1));
-    }
-
-    @Test
-    void romanNumerals_should_return_V_on5() {
-        assertEquals("V", romanNumerals.convertToNumber(5));
-    }
-
-    @Test
-    void romanNumerals_should_return_X_on_10() {
-        assertEquals("X", romanNumerals.convertToNumber(10));
-    }
-
-    @Test
-    void romanNumerals_should_return_IX_on_9() {
-        assertEquals("IX", romanNumerals.convertToNumber(9));
-    }
-
-    @Test
-    void romanNumerals_should_return_IV_on_4() {
-        assertEquals("IV", romanNumerals.convertToNumber(4));
-    }
-
-    @Test
-    void romanNumerals_should_add_a_second_I_from_1_to_2() {
-        assertEquals("II", romanNumerals.convertToNumber(2));
-    }
-
-    @Test
-    void romanNumerals_should_work_with_larger_number_till_38() {
-        assertEquals("XXXVIII",romanNumerals.convertToNumber(38) );
-    }
-    @Test
-    void romanNumerals_should_work_with_lower_number_till_39() {
-        assertEquals("XXXIX",romanNumerals.convertToNumber(39) );
-    }
-
-    @Test
-    void romanNumerals_should_work_with_L_on_50() {
-        assertEquals("L", romanNumerals.convertToNumber(50));
-    }
-
-    @Test
-    void romanNumerals_should_return_XL_on_40() {
-        assertEquals("XL", romanNumerals.convertToNumber(40));
-    }
-
-    @Test
-    void romanNumerals_should_return_C_on_100() {
-        assertEquals("C", romanNumerals.convertToNumber(100));
+    @ParameterizedTest
+    @CsvSource({
+            "I,1", "II,2", "III,3", "IV,4", "V,5",
+            "VI,6", "VII,7", "VIII,8", "IX,9", "X,10",
+            "XX,20", "XXX,30", "XL,40", "L,50",
+            "LX,60","LXX,70","LXXX,80","XC,90","C,100"
+    })
+    void romanNumerals_should_return_correct_values_from_1_to_100(String result, int arabic) {
+        assertEquals(result, romanNumerals.convertToNumber(arabic));
     }
 
     @Test
