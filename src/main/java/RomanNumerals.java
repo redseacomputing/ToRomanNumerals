@@ -5,7 +5,9 @@ public class RomanNumerals {
     enum RomanDigit {
         I(1),
         V(5),
-        X(10);
+        IV(4),
+        X(10),
+        IX(9);
 
         private int value;
 
@@ -23,6 +25,5 @@ public class RomanNumerals {
             }
         }
         return "";
-
     }
 }
