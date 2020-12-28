@@ -3,11 +3,11 @@ import com.github.chaosfirebolt.converter.RomanInteger;
 public class RomanNumerals {
 
     enum RomanDigit {
-        I(1),
+        X(10),
+        IX(9),
         V(5),
         IV(4),
-        X(10),
-        IX(9);
+        I(1);
 
         private int value;
 
@@ -20,8 +20,8 @@ public class RomanNumerals {
     public String convertToNumber(int arabicNumber) {
         for (RomanDigit roman :
                 RomanDigit.values()) {
-            if (arabicNumber == roman.value) {
-                return roman.name();
+            if (arabicNumber >= roman.value) {
+                return roman.name() + convertToNumber(arabicNumber - roman.value);
             }
         }
         return "";
