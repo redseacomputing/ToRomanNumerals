@@ -20,10 +20,6 @@ public class RomanNumerals {
                 RomanDigit.values()) {
             if (arabicNumber == roman.value) {
                 return roman.name();
-            } else if (arabicNumber == roman.value) {
-                return roman.name();
-            } else if (arabicNumber == roman.value) {
-                return roman.name();
             }
         }
         return "";
