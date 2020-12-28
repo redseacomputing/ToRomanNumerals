@@ -32,8 +32,15 @@ class RomanNumeralsTest {
         assertEquals(result, romanNumerals.convertToNumber(arabic));
     }
 
-    @Test
-    void romanNumerals_should_work_with_359() {
-        assertEquals("CCCLIX", romanNumerals.convertToNumber(359));
+    @ParameterizedTest
+    @CsvSource({
+            "CC,200","CCC,300","CCCXXX,330","CD,400","CDXL,440",
+            "D,500","DL,550","DC,600","DCLX,660","DCC,700",
+            "DCCLXX,770","DCCC,800", "DCCCLXXX,880", "CM,900","CMXC,990",
+            "M,1000","MM,2000","MMM,3000","MMMCMXCIX, 3999"
+    })
+    void romanNumerals_should_return_correct_values_from_200_to_3999(String expected, int arabic) {
+        assertEquals(expected, romanNumerals.convertToNumber(arabic) );
     }
+
 }
